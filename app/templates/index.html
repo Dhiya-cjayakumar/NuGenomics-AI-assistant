@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NuGenomics AI Assistant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="max-w-3xl mx-auto py-12 px-6 bg-white rounded-xl shadow-lg mt-10">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">
+            NuGenomics AI Assistant
+        </h1>
+
+        <!-- Query form -->
+        <form id="query-form" method="post"
+              class="flex flex-col md:flex-row gap-4 items-center justify-center mb-6">
+            <input name="query" placeholder="Ask something..." required
+                   class="w-full md:w-2/3 px-4 py-2 rounded-lg border border-gray-300
+                          focus:outline-none focus:ring-2 focus:ring-blue-500"
+                   value="{{ query or '' }}" />
+
+            <select name="agent_choice"
+                    class="px-4 py-2 rounded-lg border border-gray-300
+                           focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="auto"     {% if agent_choice == 'auto'     %}selected{% endif %}>Auto Detect</option>
+                <option value="faq"      {% if agent_choice == 'faq'      %}selected{% endif %}>Support Agent</option>
+                <option value="wellness" {% if agent_choice == 'wellness' %}selected{% endif %}>Wellness Agent</option>
+            </select>
+
+            <button type="submit"
+                    class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+                Ask
+            </button>
+        </form>
+
+        <!-- Response blocks -->
+        {% if agent_choice == "auto" and response %}
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Auto Detected Agent</h2>
+                <p class="text-gray-700">
+                    Auto-detected {{ auto_agent }} agent reply for:
+                    <strong>{{ query }}</strong>
+                </p>
+                <p class="mt-2 text-gray-800 italic">{{ response }}</p>
+            </div>
+        {% elif response %}
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Response</h2>
+                <p class="text-gray-700">
+                    Selected agent ({{ selected_agent }}) reply for:
+                    <strong>{{ query }}</strong>
+                </p>
+                <!-- Render AI response with markdown-to-HTML conversion -->
+                <div class="mt-4 text-gray-800 prose max-w-none">
+                    {{ response | safe }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,2 +1,24 @@
-.env
+# Python general
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
 venv/
+ENV/
+env.bak/
+*.sqlite3
+
+# Environment variables (hide secrets)
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Bytecode
+*.egg-info/
+dist/
+build/
+.pytest_cache/

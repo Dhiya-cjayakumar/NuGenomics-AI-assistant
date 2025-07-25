@@ -10,7 +10,7 @@ A single HTML/Tailwind front-end lets users either pick an agent manually or use
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature                    | Description                                                                                                                        |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,7 +23,7 @@ A single HTML/Tailwind front-end lets users either pick an agent manually or use
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 nugenomics_ai_assistant/
@@ -46,7 +46,7 @@ nugenomics_ai_assistant/
 
 ---
 
-## ⚙️ Quick Start
+##  Quick Start
 
 ```bash
 git clone https://github.com/your-handle/nugenomics_ai_assistant.git
@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔐 1. Google Credentials
+##  1. Google Credentials
 
 1. Create a Vertex AI service account with the **Vertex AI User** role.
 2. Download the JSON key and store it **outside** your repository.
@@ -71,7 +71,7 @@ set GOOGLE_APPLICATION_CREDENTIALS=C:\path\to\key.json
 
 ---
 
-## ▶️ 2. Run the App
+## ▶ 2. Run the App
 
 ```bash
 python run.py
@@ -80,7 +80,7 @@ python run.py
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 pytest -q
@@ -93,11 +93,11 @@ You should see:
 5 passed in 6.3s
 ```
 
-✅ ADK network calls are mocked — **no Google billing is incurred** during testing.
+ ADK network calls are mocked — **no Google billing is incurred** during testing.
 
 ---
 
-## 🚀 Deployment Notes
+##  Deployment Notes
 
 * For production with Gunicorn or Uvicorn, point the WSGI entry to `app:create_app`.
 * This app **scrapes live HTML** — if the FAQ site structure changes, update `faq_agent.py` selectors.
@@ -111,11 +111,12 @@ These tools assisted with research, code suggestions, and explanations. All code
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** – see the `LICENSE` file for details.
 
 ## Author
 
-Created and maintained by [Dhiya C Jayakumar] (www.linkedin.com/in/dhiya-cjayakumar)
+Created and maintained by Dhiya C Jayakumar (www.linkedin.com/in/dhiya-cjayakumar)
+
 For questions or collaboration, feel free to reach out at [dhiya.cjayakumar@gmail.com](mailto:dhiya.cjayakumar@gmail.com)
